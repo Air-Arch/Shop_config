@@ -21,3 +21,5 @@ Qiniu_URL: http://qnjhdttd7.hn-bkt.clouddn.com/
 tx-lcn:
   client:
     manager-address: 192.168.233.128:8070
+
+test: test01
