@@ -17,5 +17,5 @@ eureka:
       defaultZone: http://eureka-server:8761/eureka/
  
 import_cron: 0 0 0 1/15 * ? *
-refresh_cron: 0/10 * * * * ? 
+refresh_cron: 0/1 * * * * ? 
 
