@@ -15,7 +15,8 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://eureka-server:8761/eureka/
- 
-import_cron: 0 0 0 1/15 * ? *
+
+# 由于定时任务启动时读取配置文件，故无运行时修改的意义
+import_cron: 0 0 0 1/15 * ? * 
 refresh_cron: 0 0 0 * * ? *
 
