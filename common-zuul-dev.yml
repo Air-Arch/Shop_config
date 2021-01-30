@@ -1,0 +1,66 @@
+spring:
+  application:
+    name: common-zuul
+  rabbitmq:
+    addresses: 192.168.233.128
+    username: root
+    password: root
+    port: 5672
+    virtual-host: /
+
+server:
+  port: 9999
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server:8761/eureka/
+
+#全局配置,解决在网关服务中不传递请求头的问题（cookie），不然的话，转发的时候，不会把请求头中的东西都转发过去，也就没cookie了
+zuul:
+  sensitive-headers: true
+  routes:
+
+    #后台商品服务的路由规则
+    backend-item:
+      path: /backend_item/**
+
+    #后台CMS服务的路由规则
+    backend-content:
+      path: /backend_content/**
+
+    #前台首页服务的路由规则
+    frontend-portal:
+      path: /frontend_potal/**
+
+    #前台搜索服务的路由规则
+    frontend-search:
+      path: /frontend_search/**
+
+    #前台用户注册与登录服务的路由规则
+    frontend-sso:
+      path: /frontend_sso/**
+
+    #前台订单服务的路由规则
+    frontend-order:
+      path: /frontend_order/**
+
+    #前台购物车服务的路由规则
+    frontend-cart:
+      path: /frontend_cart/**
+
+#配置网关请求服务的超时时间,具体时间要结合具体情况
+#第一层Hystrix的超时时间
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000 #默认为线程池隔离，默认超时时间为1000ms
+
+#第二层ribbon的超时时间设置
+ribbon:
+  ConnectTimeout: 3000 #设置请求连接的超时时间，不能大于hystrix里的，默认为5秒
+  ReadTimeout: 3000 #设置请求处理超时时间，默认为5秒
+

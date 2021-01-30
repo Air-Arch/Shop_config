@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: common-content
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/shop?serverTimezone=GMT%2B8&characterEncoding=UTF-8
+    username: root
+    password: aspirine
+    type: com.alibaba.druid.pool.DruidDataSource
+  rabbitmq:
+    addresses: 192.168.233.128
+    username: root
+    password: root
+    port: 5672
+    virtual-host: /
+
+server:
+  port: 9011
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server:8761/eureka/
+
+tx-lcn:
+  client:
+    manager-address: 192.168.233.128:8070
+
+#大广告位对应的id
+frontend.AD: 89

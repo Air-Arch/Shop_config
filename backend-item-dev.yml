@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: backend-item
+  rabbitmq:
+    addresses: 192.168.233.128
+    username: root
+    password: root
+    port: 5672
+    virtual-host: /
+
+server:
+  port: 9020
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server:8761/eureka/
+
+Qiniu_URL: http://qnjhdttd7.hn-bkt.clouddn.com/
+
+tx-lcn:
+  client:
+    manager-address: 192.168.233.128:8070
