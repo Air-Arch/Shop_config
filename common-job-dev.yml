@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: common-job
+  rabbitmq:
+    addresses: 192.168.233.128
+    username: root
+    password: root
+    port: 5672
+    virtual-host: /
+
+server:
+  port: 9001
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server:8761/eureka/
+
