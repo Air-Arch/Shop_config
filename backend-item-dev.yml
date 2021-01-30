@@ -22,4 +22,4 @@ tx-lcn:
   client:
     manager-address: 192.168.233.128:8070
 
-test: test03
+test: test04
